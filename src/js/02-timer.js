@@ -1,5 +1,9 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import Notiflix from 'notiflix';
+require("flatpickr/dist/themes/confetti.css");
+
+
 
 const timePicker = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('[data-start]');
@@ -21,7 +25,7 @@ const options = {
   minuteIncrement: 1,
     onClose(selectedDates) {
         if (selectedDates[0] < new Date()) {
-            window.alert("Please choose a date in the future");
+            Notiflix.Notify.failure("Please choose a date in the future");
             btnStart.disabled = true;
         }
         btnStart.disabled = false;
@@ -30,6 +34,12 @@ const options = {
 };
 
 flatpickr(timePicker, options);
+Notiflix.Block.init({
+  backgroundColor: 'navy',
+  svgSize: '45px',
+  svgColor: '#e5eb34',
+  messageColor: '#e5eb34',
+});
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
@@ -64,7 +74,7 @@ function onStart() {
     const timeValue = selectedTime - new Date();
 
     btnStart.disabled = true;
-    // Notiflix.Block.hourglass('[data-start]');
+    Notiflix.Block.hourglass('[data-start]');
 
     if (timeValue >= 0) {
       let leftTime = convertMs(timeValue);
@@ -73,8 +83,9 @@ function onStart() {
       minutesLeft.textContent = leftTime.minutes;
       secondsLeft.textContent = leftTime.seconds;
       } else {
-        // Notiflix.Block.remove('[data-start]');
-        // Notiflix.Notify.success('Finish');
+      Notiflix.Block.remove('[data-start]');
+      
+        Notiflix.Notify.success('Finish');
         clearInterval(timerId);
         }
   },PROMPT_DELAY);

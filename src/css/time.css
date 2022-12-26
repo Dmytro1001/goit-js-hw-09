@@ -1,0 +1,85 @@
+body {
+    background-image: url("https://picsum.photos/id/537/1280");
+    background-size: cover;
+    color: #fff;
+    line-height: 1.5;
+
+}
+
+.timer {
+    border: 4px solid;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 50px;
+    margin-top: 50px;
+    padding: 5px;
+}
+
+button {
+    margin-left: 30px;
+
+    --glow-color: rgb(255,
+        255,
+        255);
+    --glow-spread-color: rgba(252,
+        177,
+        3, 0.781);
+    --enhanced-glow-color: rgb(252,
+        177,
+        3);
+    --btn-color: transparent;
+    border: 4px solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--glow-color);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 1em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+}
+
+button:hover {
+    color: #fcb103;
+    border-color: #fcb103;
+    background-color: var(--btn-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 2em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+}
+
+button:active {
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+        0 0 2.5em 2em var(--glow-spread-color),
+        inset 0 0 .5em .25em var(--glow-color);
+}
+
+button:disabled {
+    background-color: var(--btn-color);
+    box-shadow: 0 0 0.6em .25em navy;
+}
+
+input {
+    color: #fff;
+    border: 4px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 10px 25px;
+    background: transparent;
+    width: 250px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+.input:active {
+    box-shadow: 2px 2px 15px yellow inset;
+}
